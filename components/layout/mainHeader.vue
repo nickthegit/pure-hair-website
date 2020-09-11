@@ -1,5 +1,5 @@
 <template>
-  <header :class="navStatus ? 'navOpen' : 'navClosed'">
+  <header>
     <main-nav-btn @nav-btn-pressed="navToggle()" :labelName="labelName" :buttonState="navStatus" />
     <section id="brand" @click="navToggle(false)">
       <nuxt-link to="/">brand here</nuxt-link>
@@ -28,9 +28,6 @@
           ? (this.labelName = 'Menu')
           : (this.labelName = 'Close')
       },
-      franky: function () {
-        console.log('pork and beans')
-      },
     },
     mounted() {
       // console.log(this.navStatus)
@@ -39,6 +36,13 @@
       $route(e) {
         this.navToggle(false)
       },
+    },
+    head() {
+      return {
+        bodyAttrs: {
+          class: this.navStatus ? 'navOpen' : 'navClosed',
+        },
+      }
     },
   }
 </script>
