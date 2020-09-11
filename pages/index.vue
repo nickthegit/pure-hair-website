@@ -1,6 +1,10 @@
 <template>
   <main>
-    <h1>Dave</h1>
+    <h1>
+      ********
+      <br />Pure Hair
+      <br />********
+    </h1>
   </main>
 </template>
 
