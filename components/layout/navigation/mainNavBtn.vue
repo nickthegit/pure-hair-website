@@ -1,29 +1,22 @@
 <template>
   <button
     class="hamburger hamburger--collapse menu-btn"
-    :class="buttonState ? 'open is-active' : 'closed'"
+    :class="$store.state.navState ? 'open is-active' : 'closed'"
     type="button"
     name="menu-btn"
-    @click="$emit('nav-btn-pressed')"
+    @click="$store.dispatch('setNav')"
   >
     <span class="hamburger-box">
       <span class="hamburger-inner"></span>
     </span>
-    <label for="menu-btn">{{ labelName }}</label>
+    <label for="menu-btn">{{ $store.state.navState ? 'CLOSE' : 'MENU' }}</label>
   </button>
 </template>
 
 <script>
   export default {
-    props: {
-      buttonState: {
-        type: Boolean,
-        default: false,
-      },
-      labelName: {
-        type: String,
-        default: 'MENU',
-      },
+    mounted() {
+      // console.log(this.$store.state.navState)
     },
   }
 </script>
@@ -31,7 +24,7 @@
 <style lang="scss" scoped>
   $hamburger-padding-x: $headerHeight / 4;
   $hamburger-padding-y: $headerHeight / 4;
-  $hamburger-layer-width: 25px;
+  $hamburger-layer-width: 20px;
   $hamburger-layer-height: 2px;
   $hamburger-layer-spacing: 5px;
   $hamburger-layer-color: $black;
@@ -56,6 +49,7 @@
       text-transform: uppercase;
       margin-left: 5px;
       cursor: pointer;
+      font-family: 'Permanent Marker', cursive;
     }
     .hamburger-box {
       vertical-align: middle;
