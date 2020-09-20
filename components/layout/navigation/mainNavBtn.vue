@@ -50,6 +50,9 @@
       margin-left: 5px;
       cursor: pointer;
       font-family: 'Permanent Marker', cursive;
+      @include breakpoint(mobile) {
+        display: none;
+      }
     }
     .hamburger-box {
       vertical-align: middle;

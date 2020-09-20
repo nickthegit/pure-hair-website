@@ -14,10 +14,16 @@
     >
       <socials uid="headerSocials" />
     </main-nav>
+    <div
+      id="nav_white-space"
+      v-show="$store.state.navState"
+      @click="$store.dispatch('setNavPayload', false)"
+    ></div>
   </header>
 </template>
 
 <script>
+  import { gsap } from 'gsap'
   export default {
     head() {
       return {
@@ -77,11 +83,35 @@
     top: 50%;
     right: $headerHeight / 4;
     transform: translateY(-50%);
-    padding: 12px 25px 9px 25px;
+    padding: 16px 25px 12px 25px;
     border-radius: 20px;
     text-align: center;
+    z-index: 5;
+    @include breakpoint(mobile) {
+      position: fixed;
+      top: unset;
+      right: unset;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
   #mainNav {
+  }
+  #nav_white-space {
+    width: 66.6666666%;
+    height: 100vh;
+    background: transparent;
+    z-index: 4;
+    top: 0;
+    position: absolute;
+    right: 0;
+    @include breakpoint(tablet) {
+      width: 33.333333%;
+    }
+    @include breakpoint(mobile) {
+      width: 10%;
+    }
   }
   .navOpen {
     .menu-btn {
