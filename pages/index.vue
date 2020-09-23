@@ -1,10 +1,6 @@
 <template>
   <main>
-    <h1>
-      ********
-      <br />Pure Hair
-      <br />********
-    </h1>
+    <home-hero />
   </main>
 </template>
 

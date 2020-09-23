@@ -6,12 +6,8 @@
         <logo-1 />
       </nuxt-link>
     </section>
-    <a href id="header_cta">Book Now!</a>
-    <main-nav
-      v-show="$store.state.navState"
-      @click="$store.dispatch('setNavPayload', false)"
-      uid="headerNav"
-    >
+    <anchor id="header_cta" link="/">Book Now!</anchor>
+    <main-nav @click="$store.dispatch('setNavPayload', false)" uid="headerNav">
       <socials uid="headerSocials" />
     </main-nav>
     <div
@@ -25,6 +21,10 @@
 <script>
   import { gsap } from 'gsap'
   export default {
+    mounted() {
+      // gsap.fromTo('#brand', { opacity: 0 }, { opacity: 1, duration: 3 })
+      // gsap.fromTo('.headerNav', { opacity: 0 }, { opacity: 1, duration: 3 })
+    },
     head() {
       return {
         bodyAttrs: {
@@ -37,7 +37,7 @@
 
 <style lang="scss" scoped>
   header {
-    position: relative;
+    position: absolute;
     z-index: 999999;
     top: 0;
     left: 0;
@@ -71,21 +71,10 @@
     }
   }
   #header_cta {
-    display: flex;
-    color: $white;
-    background: $primary;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 14px;
-    line-height: 14px;
-    font-weight: 700;
     position: absolute;
     top: 50%;
     right: $headerHeight / 4;
     transform: translateY(-50%);
-    padding: 16px 25px 12px 25px;
-    border-radius: 20px;
-    text-align: center;
     z-index: 5;
     @include breakpoint(mobile) {
       position: fixed;
