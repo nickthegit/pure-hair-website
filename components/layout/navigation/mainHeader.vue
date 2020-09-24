@@ -19,12 +19,8 @@
 </template>
 
 <script>
-  import { gsap } from 'gsap'
   export default {
-    mounted() {
-      // gsap.fromTo('#brand', { opacity: 0 }, { opacity: 1, duration: 3 })
-      // gsap.fromTo('.headerNav', { opacity: 0 }, { opacity: 1, duration: 3 })
-    },
+    mounted() {},
     head() {
       return {
         bodyAttrs: {

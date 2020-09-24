@@ -1,9 +1,10 @@
 <template>
   <transition
-    v-on:before-enter="beforeEnter"
-    v-on:enter="enter"
-    v-on:leave="leave"
-    v-bind:css="false"
+    @before-enter="beforeEnter"
+    @enter="enter"
+    @leave="leave"
+    @leave-cancelled="leaveCancelled"
+    :css="false"
   >
     <nav :class="uid" v-show="$store.state.navState">
       <ul class="main" @click="$store.dispatch('setNavPayload', false)">
@@ -48,7 +49,7 @@
           const mainLi = el.querySelectorAll('.main li')
 
           gsap.set(el, { opacity: 0, x: '-5%' })
-          gsap.set(mainLi, { opacity: 0, x: '-5%' })
+          gsap.set(mainLi, { opacity: 0, y: 20 })
         }
       },
       enter: function (el, done) {
@@ -58,7 +59,7 @@
           let tl = gsap.timeline({ onComplete: done })
 
           tl.to(el, { opacity: 1, x: 0, duration: 0.2 })
-          tl.to(mainLi, { opacity: 1, x: 0, stagger: 0.1 })
+          tl.to(mainLi, { opacity: 1, y: 0, stagger: 0.1 }, '-=0.1')
         }
       },
       leave: function (el, done) {
@@ -68,6 +69,14 @@
           let tlq = gsap.timeline({ onComplete: done })
 
           tlq.to(el, { opacity: 0, x: '-5%', duration: 0.2, ease: 'power3.in' })
+        }
+      },
+      leaveCancelled: function (el) {
+        if (el.classList.contains('headerNav')) {
+          const mainLi = el.querySelectorAll('.main li')
+
+          gsap.set(el, { opacity: 0, x: '-5%' })
+          gsap.set(mainLi, { opacity: 0, y: 20 })
         }
       },
     },
@@ -103,9 +112,29 @@
         display: block;
         padding: 10px;
         text-decoration: none;
-        color: $white;
+        color: $lightgrey;
         font-family: 'Permanent Marker', cursive;
-        font-size: 5vh;
+        font-size: 32px;
+        opacity: 0.8;
+        &.nuxt-link-exact-active,
+        &:hover,
+        &:active {
+          color: $white;
+          opacity: 1;
+        }
+        &.nuxt-link-exact-active {
+          transform: translateX(20px);
+          &::before {
+            content: '';
+            width: 5px;
+            height: 32px;
+            display: block;
+            background: $white;
+            position: absolute;
+            top: 12px;
+            left: -10px;
+          }
+        }
       }
     }
   }

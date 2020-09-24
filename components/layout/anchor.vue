@@ -24,19 +24,17 @@
 
 <style lang="scss" scoped>
   a {
-    width: fit-content;
-    display: flex;
-    text-align: center;
-    justify-content: center;
+    width: auto;
+    display: inline-block;
     color: $white;
     background: $primary;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 16px;
+    line-height: 16px;
     font-weight: 700;
     padding: 16px 25px 12px 25px;
-    border-radius: 20px;
+    border-radius: 30px;
     text-align: center;
     position: relative;
     span {
@@ -59,7 +57,7 @@
           visibility: hidden;
         }
         &:nth-child(2) {
-          display: block;
+          display: inline-block;
         }
       }
     }
