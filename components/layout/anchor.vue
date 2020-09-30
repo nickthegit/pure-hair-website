@@ -33,10 +33,12 @@
     font-size: 16px;
     line-height: 16px;
     font-weight: 700;
-    padding: 16px 25px 12px 25px;
+    padding: 12px 25px 12px 25px;
     border-radius: 30px;
     text-align: center;
     position: relative;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
     span {
       &:nth-child(2) {
         display: none;

@@ -34,14 +34,7 @@
   const facebook = require('simple-icons/icons/facebook')
   const twitter = require('simple-icons/icons/twitter')
   const instagram = require('simple-icons/icons/instagram')
-  // const linkedin = require('simple-icons/icons/linkedin')
-  // const spotify = require('simple-icons/icons/spotify')
-  // const vimeo = require('simple-icons/icons/vimeo')
-  // const youtube = require('simple-icons/icons/youtube')
 
-  // facebook.hex
-
-  // console.log(spotify, linkedin, instagram, twitter, facebook, youtube, vimeo)
   export default {
     props: {
       uid: {

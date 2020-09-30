@@ -2,6 +2,7 @@
   <div>
     <main-header />
     <Nuxt class="page-content-wrapper" />
+    <newsletter-sign-up />
     <main-footer />
   </div>
 </template>

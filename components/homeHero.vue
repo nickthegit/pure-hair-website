@@ -138,11 +138,11 @@
   section {
     width: 100%;
     min-height: 100vh;
-    // background: chocolate;
+    max-width: $containerWidth;
+    margin: 0 auto;
     position: relative;
     top: 0;
     left: 0;
-    // padding: (40px + $headerHeight) 40px 40px 40px;
     padding: 40px;
     display: grid;
     grid-template: 100% / 40% 10% 50%;
@@ -153,7 +153,7 @@
       grid-template: auto 1fr / 100%;
     }
     @include breakpoint(mobile) {
-      padding: 80px 10px 40px 10px;
+      padding: 80px 20px 40px 20px;
     }
   }
   .hero__headline-wrap {
@@ -177,7 +177,7 @@
     margin: 20px 0;
     font-size: 2.2vw;
     line-height: 110%;
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: 'EB Garamond', serif;
     font-weight: 400;
     color: $grey;
     @include breakpoint(tablet) {

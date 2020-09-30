@@ -113,8 +113,11 @@
         padding: 10px;
         text-decoration: none;
         color: $lightgrey;
-        font-family: 'Permanent Marker', cursive;
-        font-size: 32px;
+        font-family: '', sans-serif;
+        text-transform: capitalize;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 700;
+        font-size: 28px;
         opacity: 0.8;
         &.nuxt-link-exact-active,
         &:hover,
@@ -126,12 +129,12 @@
           transform: translateX(20px);
           &::before {
             content: '';
-            width: 5px;
-            height: 32px;
+            width: 3px;
+            height: 26px;
             display: block;
             background: $white;
             position: absolute;
-            top: 12px;
+            top: 10px;
             left: -10px;
           }
         }

@@ -49,7 +49,8 @@
       text-transform: uppercase;
       margin-left: 5px;
       cursor: pointer;
-      font-family: 'Permanent Marker', cursive;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
       @include breakpoint(mobile) {
         display: none;
       }

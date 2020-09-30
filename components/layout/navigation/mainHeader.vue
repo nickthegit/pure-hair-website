@@ -44,7 +44,7 @@
   #menuBtn {
     position: absolute;
     top: 50%;
-    left: 0;
+    left: 5px;
     transform: translateY(-50%);
   }
   #brand {
@@ -69,7 +69,7 @@
   #header_cta {
     position: absolute;
     top: 50%;
-    right: $headerHeight / 4;
+    right: 20px;
     transform: translateY(-50%);
     z-index: 5;
     @include breakpoint(mobile) {
