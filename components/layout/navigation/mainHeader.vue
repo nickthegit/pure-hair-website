@@ -39,7 +39,7 @@
     left: 0;
     width: 100%;
     height: $headerHeight;
-    background: $white;
+    // background: $white;
   }
   #menuBtn {
     position: absolute;

@@ -12,6 +12,7 @@
     width: 100%;
     min-height: 80vh;
     transition: transform 0.2s ease-out;
+    transition-delay: 0.1s;
   }
   .navOpen {
     .page-content-wrapper {
