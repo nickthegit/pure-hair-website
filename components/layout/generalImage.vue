@@ -12,16 +12,29 @@
     <source :srcset="imgPaths.img1600" media="(max-width: 1600px)" />
     <source :srcset="imgPaths.img1800" media="(max-width: 1800px)" />
     <source :srcset="imgPaths.img2000" media="(min-width: 1801px)" />
-    <img v-if="imgShow" :src="imgPaths.img1400" :alt="imgAlt" />
+    <transition
+      @before-enter="set"
+      @enter="enter"
+      @leave="set"
+      @leave-cancelled="set"
+      :css="false"
+    >
+      <img v-if="imgIn" :src="imgPaths.img1400" :alt="imgAlt" />
+    </transition>
   </picture>
 </template>
 
 <script>
+  import { gsap } from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  if (process.client) {
+    gsap.registerPlugin(ScrollTrigger)
+  }
   // import VueTypes from 'vue-types'
   import { number, string, objectOf, array, bool } from 'vue-types'
   export default {
     props: {
-      imgShow: bool().def(true),
+      imgSide: string().def('right'),
       imgRatio: array()
         .validate(
           (arr) =>
@@ -42,6 +55,11 @@
         img1800: 'https://place-hold.it/1800x1800.jpeg&text=1800',
         img2000: 'https://place-hold.it/2000x2000.jpeg&text=2000',
       })),
+    },
+    data() {
+      return {
+        imgIn: false,
+      }
     },
     computed: {
       padding() {
@@ -65,7 +83,53 @@
         }
       },
     },
-    mounted() {},
+    methods: {
+      inTransition() {
+        gsap.from(this.$el, {
+          duration: 2,
+          x: this.imgSide === 'left' ? -50 : 50,
+          autoAlpha: 0,
+          ease: 'back.out(1)',
+          scrollTrigger: {
+            trigger: this.$el,
+            start: 'top bottom',
+            end: '+=300',
+            scrub: 1,
+            once: true,
+          },
+        })
+      },
+      showImg() {
+        ScrollTrigger.create({
+          trigger: this.$el,
+          start: '-400px bottom',
+          once: true,
+          onEnter: ({ progress, direction, isActive }) => {
+            this.imgIn = true
+          },
+        })
+      },
+      set: function (el) {
+        gsap.set(el, { autoAlpha: 0 })
+      },
+      enter: function (el, done) {
+        gsap.fromTo(
+          el,
+          { autoAlpha: 0 },
+          {
+            duration: 1,
+            autoAlpha: 1,
+            onComplete: () => {
+              done
+            },
+          }
+        )
+      },
+    },
+    mounted() {
+      this.inTransition()
+      this.showImg()
+    },
   }
 </script>
 
@@ -75,7 +139,6 @@
     height: 0;
     position: relative;
     display: block;
-
     overflow: hidden;
     img {
       width: 100%;

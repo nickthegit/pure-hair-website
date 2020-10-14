@@ -1,6 +1,6 @@
 <template>
   <main>
-    <!-- <home-hero /> -->
+    <home-hero />
     <home-intro />
   </main>
 </template>

@@ -24,6 +24,9 @@
 <script>
   import { gsap } from 'gsap'
   import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  if (process.client) {
+    gsap.registerPlugin(ScrollTrigger)
+  }
   // define repeatable els
   let vm,
     el,
@@ -35,10 +38,6 @@
     pattern,
     imgWrap,
     img
-
-  if (process.client) {
-    gsap.registerPlugin(ScrollTrigger)
-  }
 
   export default {
     data() {

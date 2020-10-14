@@ -10,7 +10,7 @@
     <general-image class="section-item__2" :imgRatio="[3, 2]" />
     <general-image class="section-item__3" />
     <general-image class="section-item__4" />
-    <general-image class="section-item__5" />
+    <general-image class="section-item__5" imgSide="left" />
     <div class="text-wrap section-item__6">
       <p>
         At PURE HAIR we strive for every guest to feel cared for and beautiful.
@@ -56,7 +56,32 @@
 </template>
 
 <script>
-  export default {}
+  import { gsap } from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  if (process.client) {
+    gsap.registerPlugin(ScrollTrigger)
+  }
+  export default {
+    mounted() {
+      const textBoxes = this.$el.querySelectorAll('.text-wrap')
+      textBoxes.forEach((textBox) => {
+        gsap.from(textBox, {
+          duration: 1,
+          y: 100,
+          autoAlpha: 0,
+          ease: 'back.out(1)',
+          scrollTrigger: {
+            trigger: textBox,
+            start: 'top bottom',
+            end: '+=300',
+            scrub: 1,
+            markers: true,
+            once: true,
+          },
+        })
+      })
+    },
+  }
 </script>
 
 <style lang="scss" scoped>
