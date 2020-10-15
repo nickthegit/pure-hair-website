@@ -2,6 +2,7 @@
   <main>
     <home-hero />
     <home-intro />
+    <quote />
   </main>
 </template>
 

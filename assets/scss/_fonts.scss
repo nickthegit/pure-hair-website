@@ -43,6 +43,12 @@ h2 {
   line-height: 90%;
 }
 
+h3 {
+  font-size: 50px;
+  font-size: clamp(30px, 3vw, 80px);
+  line-height: 90%;
+}
+
 p {
   font-size: 20px;
   font-size: clamp(18px, 1.6vw, 28px);

@@ -28,7 +28,9 @@
               <nuxt-link to="/a-page">Contact</nuxt-link>
             </li>
             <li>
-              <a href="http://" target="_blank" rel="noopener noreferrer">Book Online</a>
+              <a href="http://" target="_blank" rel="noopener noreferrer"
+                >Book Online</a
+              >
             </li>
           </ul>
         </nav>
@@ -41,19 +43,20 @@
           <ul>
             <li>
               Pure Hair,
-              <br />Half Moon St,
-              <br />Sherborne,
-              <br />DT9 3LN
+              <br />Half Moon St, <br />Sherborne, <br />DT9 3LN
             </li>
             <li>
-              <a href="tel:+44 1935 814172" rel="noopener noreferrer">01935 814172</a>
+              <a href="tel:+44 1935 814172" rel="noopener noreferrer"
+                >01935 814172</a
+              >
             </li>
             <li>
               <a
                 href="mailto:hello@pure-hair.co.uk"
                 target="_blank"
                 rel="noopener noreferrer"
-              >hello@pure-hair.co.uk</a>
+                >hello@pure-hair.co.uk</a
+              >
             </li>
           </ul>
         </address>
@@ -110,7 +113,7 @@
       text-align: right;
       align-items: flex-start;
       justify-content: flex-end;
-      font-size: 12px;
+      font-size: 14px;
       line-height: 130%;
       @include breakpoint(mobile) {
         padding-bottom: 0;

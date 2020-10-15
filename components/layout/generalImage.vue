@@ -42,7 +42,7 @@
             arr.every((num) => num > 0 && typeof num === 'number'),
           'error msg?'
         )
-        .def([16, 9]),
+        .def([3, 2]),
       imgAlt: string().def('A image alt text'),
       imgPaths: objectOf(String).def(() => ({
         img480: 'https://place-hold.it/480x480.jpeg&text=480',
@@ -92,7 +92,7 @@
           ease: 'back.out(1)',
           scrollTrigger: {
             trigger: this.$el,
-            start: 'top bottom',
+            start: 'top+=200 bottom',
             end: '+=300',
             scrub: 1,
             once: true,

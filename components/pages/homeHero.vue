@@ -15,7 +15,7 @@
       <general-image
         :imgPaths="imgPaths"
         imgAlt="Pure Hair hero image"
-        :imgRatio="$device.isMobile ? [2, 2] : [16, 9]"
+        :imgRatio="$device.isMobile ? [2, 2] : [3, 2]"
       />
     </div>
   </section>
