@@ -7,10 +7,18 @@
         degree of customer service in a professional comfortable setting.
       </p>
     </div>
-    <general-image class="section-item__2" :imgRatio="[3, 2]" />
-    <general-image class="section-item__3" />
-    <general-image class="section-item__4" />
-    <general-image class="section-item__5" imgSide="left" />
+    <general-image
+      class="section-item__2"
+      :imgPaths="imgPaths()"
+      :imgRatio="[3, 2]"
+    />
+    <general-image class="section-item__3" :imgPaths="imgPaths(4)" />
+    <general-image class="section-item__4" :imgPaths="imgPaths(2)" />
+    <general-image
+      class="section-item__5"
+      imgSide="left"
+      :imgPaths="imgPaths(3)"
+    />
     <div class="text-wrap section-item__6">
       <p>
         At PURE HAIR we strive for every guest to feel cared for and beautiful.
@@ -50,8 +58,8 @@
         clients is extremely important to us at Pure Hair.
       </p>
     </div>
-    <general-image class="section-item__9" />
-    <general-image class="section-item__10" />
+    <general-image class="section-item__9" :imgPaths="imgPaths(4)" />
+    <general-image class="section-item__10" :imgPaths="imgPaths(5)" />
   </section>
 </template>
 
@@ -80,6 +88,21 @@
           },
         })
       })
+    },
+    methods: {
+      imgPaths(num) {
+        return {
+          img480: `/selects/photo-2020${num ? '-' + num : ''}.jpg`,
+          img600: `/selects/photo-2020${num ? '-' + num : ''}.jpg`,
+          img800: `/selects/photo-2020${num ? '-' + num : ''}.jpg`,
+          img960: `/selects/photo-2020${num ? '-' + num : ''}.jpg`,
+          img1200: `/selects/photo-2020${num ? '-' + num : ''}.jpg`,
+          img1400: `/selects/photo-2020${num ? '-' + num : ''}.jpg`,
+          img1600: `/selects/photo-2020${num ? '-' + num : ''}.jpg`,
+          img1800: `/selects/photo-2020${num ? '-' + num : ''}.jpg`,
+          img2000: `/selects/photo-2020${num ? '-' + num : ''}.jpg`,
+        }
+      },
     },
   }
 </script>
