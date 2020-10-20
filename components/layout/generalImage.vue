@@ -87,15 +87,15 @@
       inTransition() {
         gsap.from(this.$el, {
           duration: 2,
-          x: this.imgSide === 'left' ? -50 : 50,
+          x: this.imgSide === 'left' ? -40 : 40,
           autoAlpha: 0,
           ease: 'back.out(1)',
           scrollTrigger: {
             trigger: this.$el,
-            start: 'top+=200 bottom',
-            end: '+=300',
+            start: 'top+=100 bottom',
+            end: '+=600',
             scrub: 1,
-            once: true,
+            // once: true,
           },
         })
       },
@@ -103,7 +103,9 @@
         ScrollTrigger.create({
           trigger: this.$el,
           start: '-400px bottom',
-          once: true,
+          end: '+=400',
+          // markers: true,
+          // once: true,
           onEnter: ({ progress, direction, isActive }) => {
             this.imgIn = true
           },
@@ -117,7 +119,7 @@
           el,
           { autoAlpha: 0 },
           {
-            duration: 1,
+            duration: 2,
             autoAlpha: 1,
             onComplete: () => {
               done

@@ -8,6 +8,11 @@
 </template>
 
 <script>
+  import { gsap } from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  if (process.client) {
+    gsap.registerPlugin(ScrollTrigger)
+  }
   export default {
     props: {
       quote: {
@@ -18,6 +23,23 @@
         type: String,
       },
     },
+    mounted() {
+      const quote = this.$el.querySelector('blockquote')
+      gsap.from(quote, {
+        duration: 1,
+        y: 100,
+        autoAlpha: 0,
+        ease: 'back.out(1)',
+        scrollTrigger: {
+          trigger: quote,
+          start: 'top bottom',
+          end: '+=500',
+          scrub: 1,
+          // markers: true,
+          // once: true,
+        },
+      })
+    },
   }
 </script>
 
@@ -25,7 +47,7 @@
   section {
     width: 100%;
     height: auto;
-    background: $pink;
+    background: rgba($pink, 0.5);
   }
   blockquote {
     width: 100%;

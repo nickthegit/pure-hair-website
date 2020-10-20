@@ -81,10 +81,10 @@
           scrollTrigger: {
             trigger: textBox,
             start: 'top bottom',
-            end: '+=300',
+            end: '+=500',
             scrub: 1,
-            markers: true,
-            once: true,
+            // markers: true,
+            // once: true,
           },
         })
       })
