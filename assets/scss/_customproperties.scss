@@ -1,0 +1,6 @@
+:root {
+  --global_padding: 80px;
+  @include breakpoint(mobile) {
+    --global_padding: 20px;
+  }
+}
