@@ -19,93 +19,98 @@
 </template>
 
 <script>
-  export default {
-    mounted() {},
-    head() {
-      return {
-        bodyAttrs: {
-          class: this.$store.state.navState ? 'navOpen' : 'navClosed',
-        },
-      }
-    },
-  }
+import Logo1 from '~/components/logos/logo1.vue'
+import Anchor from '../anchor.vue'
+import Socials from '../socials.vue'
+import mainNav from './mainNav.vue'
+import MainNavBtn from './mainNavBtn.vue'
+export default {
+  components: { mainNav, Anchor, MainNavBtn, Logo1, Socials },
+  head() {
+    return {
+      bodyAttrs: {
+        class: this.$store.state.navState ? 'navOpen' : 'navClosed',
+      },
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped>
-  header {
-    position: absolute;
-    z-index: 999999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: $headerHeight;
-    // background: $white;
+header {
+  position: absolute;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $headerHeight;
+  // background: $white;
+}
+#menuBtn {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+}
+#brand {
+  display: flex;
+  position: relative;
+  height: $headerHeight / 2;
+  width: 100%;
+  left: 0;
+  top: $headerHeight / 4;
+  z-index: 5;
+  margin: 0 auto;
+  a {
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
   }
-  #menuBtn {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
+  svg {
+    height: 100%;
+    fill: $primary;
+  }
+}
+#header_cta {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 5;
+  @include breakpoint(mobile) {
+    position: fixed;
+    top: unset;
+    right: unset;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+#mainNav {
+}
+#nav_white-space {
+  width: 66.6666666%;
+  height: 100vh;
+  background: transparent;
+  z-index: 4;
+  top: 0;
+  position: absolute;
+  right: 0;
+  @include breakpoint(tablet) {
+    width: 33.333333%;
+  }
+  @include breakpoint(mobile) {
+    width: 10%;
+  }
+}
+.navOpen {
+  .menu-btn {
+    color: $white;
   }
   #brand {
-    display: flex;
-    position: relative;
-    height: $headerHeight / 2;
-    width: 100%;
-    left: 0;
-    top: $headerHeight / 4;
-    z-index: 5;
-    margin: 0 auto;
-    a {
-      height: 100%;
-      position: relative;
-      margin: 0 auto;
-    }
     svg {
-      height: 100%;
-      fill: $primary;
+      // fill: $white;
     }
   }
-  #header_cta {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    z-index: 5;
-    @include breakpoint(mobile) {
-      position: fixed;
-      top: unset;
-      right: unset;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-  #mainNav {
-  }
-  #nav_white-space {
-    width: 66.6666666%;
-    height: 100vh;
-    background: transparent;
-    z-index: 4;
-    top: 0;
-    position: absolute;
-    right: 0;
-    @include breakpoint(tablet) {
-      width: 33.333333%;
-    }
-    @include breakpoint(mobile) {
-      width: 10%;
-    }
-  }
-  .navOpen {
-    .menu-btn {
-      color: $white;
-    }
-    #brand {
-      svg {
-        // fill: $white;
-      }
-    }
-  }
+}
 </style>

@@ -56,10 +56,12 @@
 <script>
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import generalImage from '../layout/generalImage.vue'
 if (process.client) {
   gsap.registerPlugin(ScrollTrigger)
 }
 export default {
+  components: { generalImage },
   mounted() {
     const textBoxes = this.$el.querySelectorAll('.text-wrap')
     textBoxes.forEach((textBox) => {

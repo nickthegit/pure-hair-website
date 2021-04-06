@@ -7,6 +7,15 @@
   </div>
 </template>
 
+<script>
+import MainFooter from '~/components/layout/mainFooter.vue'
+import mainHeader from '~/components/layout/navigation/mainHeader.vue'
+import NewsletterSignUp from '~/components/newsletter/newsletterSignUp.vue'
+export default {
+  components: { mainHeader, MainFooter, NewsletterSignUp },
+}
+</script>
+
 <style lang="scss">
 div {
   width: 100%;

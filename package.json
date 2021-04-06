@@ -16,7 +16,7 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "gsap": "file:gsap-bonus.tgz",
     "npm": "^6.14.8",
-    "nuxt": "^2.14.4",
+    "nuxt": "^2.14.12",
     "simple-icons": "^3.6.1",
     "swiper": "^6.1.2",
     "vue": "^2.6.12",

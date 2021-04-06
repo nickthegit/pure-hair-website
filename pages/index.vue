@@ -37,7 +37,12 @@
 </template>
 
 <script>
+import Quote from '~/components/layout/quote.vue'
+import homeHero from '~/components/pages/homeHero.vue'
+import HomeIntro from '~/components/pages/homeIntro.vue'
+import generalImage from '~/components/layout/generalImage.vue'
 export default {
+  components: { homeHero, HomeIntro, Quote, generalImage },
   mounted() {
     // * Access ENV with:
     // process.env.ENV_TEST
