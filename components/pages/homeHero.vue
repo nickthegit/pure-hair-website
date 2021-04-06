@@ -48,15 +48,24 @@ export default {
       heroShow: false,
       heroFinished: false,
       imgPaths: {
-        img480: '/hero-image.jpeg',
-        img600: '/hero-image.jpeg',
-        img800: '/hero-image.jpeg',
-        img960: '/hero-image.jpeg',
-        img1200: '/hero-image.jpeg',
-        img1400: '/hero-image.jpeg',
-        img1600: '/hero-image.jpeg',
-        img1800: '/hero-image.jpeg',
-        img2000: '/hero-image.jpeg',
+        img480:
+          'https://res.cloudinary.com/nickjohn/image/upload/c_scale,f_auto,q_auto,w_480/v1617742649/purehair/hero-image.jpg',
+        img600:
+          'https://res.cloudinary.com/nickjohn/image/upload/c_scale,f_auto,q_auto,w_600/v1617742649/purehair/hero-image.jpg',
+        img800:
+          'https://res.cloudinary.com/nickjohn/image/upload/c_scale,f_auto,q_auto,w_800/v1617742649/purehair/hero-image.jpg',
+        img960:
+          'https://res.cloudinary.com/nickjohn/image/upload/c_scale,f_auto,q_auto,w_960/v1617742649/purehair/hero-image.jpg',
+        img1200:
+          'https://res.cloudinary.com/nickjohn/image/upload/c_scale,f_auto,q_auto,w_1200/v1617742649/purehair/hero-image.jpg',
+        img1400:
+          'https://res.cloudinary.com/nickjohn/image/upload/c_scale,f_auto,q_auto,w_1400/v1617742649/purehair/hero-image.jpg',
+        img1600:
+          'https://res.cloudinary.com/nickjohn/image/upload/c_scale,f_auto,q_auto,w_1600/v1617742649/purehair/hero-image.jpg',
+        img1800:
+          'https://res.cloudinary.com/nickjohn/image/upload/c_scale,f_auto,q_auto,w_1800/v1617742649/purehair/hero-image.jpg',
+        img2000:
+          'https://res.cloudinary.com/nickjohn/image/upload/c_scale,f_auto,q_auto,w_2000/v1617742649/purehair/hero-image.jpg',
       },
     }
   },
