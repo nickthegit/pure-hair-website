@@ -16,13 +16,12 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Pure Hair - Sherborne',
     meta: [
       ...createSEOMeta({
-        title: 'insert title here',
-        description:
-          'insert description here',
-        image: '[Insert_NarutoDose_Image_URL]',
+        title: 'Pure Hair - Sherborne',
+        description: 'The Finest Salon Experience In Dorset.',
+        image: 'https://res.cloudinary.com/nickjohn/image/upload/c_scale,f_auto,q_auto,w_800/v1617743689/purehair/IMG_7383.jpg',
         url: process.env.HOST_NAME,
       }),
     ],
