@@ -24,6 +24,7 @@
 <script>
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import imagesLoaded from 'imagesloaded'
 import anchor from '../layout/anchor.vue'
 import GeneralImage from '../layout/generalImage.vue'
 if (process.client) {
@@ -107,11 +108,15 @@ export default {
         { autoAlpha: 1, y: 0, stagger: 0.25, duration: 0.5 },
         'tlStart'
       )
-        .to(subtitle, { autoAlpha: 1, y: 0, duration: 0.2 }, 'tlStart+=0.9')
+        .to(subtitle, { autoAlpha: 1, y: 0, duration: 0.2 }, 'tlStart+=0.7')
         .to(ctaBtn, { autoAlpha: 1, y: 0, duration: 0.5 }, '-=0.1')
-        .to(background, { autoAlpha: 0.075, x: 0, duration: 0.75 }, '-=0.5')
-        .to(pattern, { autoAlpha: 0.4, x: 0, duration: 0.75 }, '-=0.1')
-        .to(imgWrap, { autoAlpha: 1, y: 0, duration: 2 }, '-=1.2')
+        .to(
+          background,
+          { autoAlpha: 0.075, x: 0, duration: 0.75 },
+          'tlStart+=0.3'
+        )
+        .to(pattern, { autoAlpha: 0.4, x: 0, duration: 0.75 }, 'tlStart+=0.1')
+        .to(imgWrap, { autoAlpha: 1, y: 0, duration: 2 }, 'tlStart+=0.5')
     },
     hero_scroll_leave() {
       // * define tl's
@@ -167,6 +172,13 @@ export default {
     await this.vars()
     await this.enterAnimation()
     this.$nextTick(async () => {
+      let imgLoad = imagesLoaded(this.$el, function (instance) {
+        console.log('all images are loaded', instance)
+      })
+      imgLoad.on('progress', function (instance, image) {
+        var result = image.isLoaded ? 'loaded' : 'broken'
+        console.log('image is ' + result + ' for ' + image.img.src)
+      })
       this.heroShow = await true
       // await this.hero_scroll_leave()
     })
